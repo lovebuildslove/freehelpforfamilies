@@ -6,19 +6,302 @@
   <title>Free Help for Families</title>
   <meta name="description" content="Affordable, text-based, third-party support for low-conflict, child-focused communication.">
   <style>
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: #ffffff; }
-    body { font-family: Arial, Helvetica, sans-serif; }
-    main { width: 100%; display: flex; justify-content: center; }
-    .site-wrap { width: min(100%, 1400px); }
-    .site-image { width: 100%; height: auto; display: block; }
+    :root{
+      --pink:#ef6f9d;
+      --pink-dark:#d95486;
+      --navy:#17395f;
+      --blue:#4d9fda;
+      --purple:#8f6cc7;
+      --ink:#26384d;
+      --muted:#60738a;
+      --line:#dbe7f0;
+      --card:#ffffff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--ink);
+      background:#fff;
+      line-height:1.45;
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none}
+    .wrap{width:min(1180px,92vw);margin:0 auto}
+    .hero{
+      padding:24px 0 8px;
+    }
+    .hero-banner{
+      width:100%;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow:0 14px 32px rgba(23,57,95,.08);
+      background:#fff;
+    }
+    .hero-banner img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    .actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin:22px 0 6px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:54px;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:1rem;
+      box-shadow:0 8px 20px rgba(23,57,95,.09);
+    }
+    .btn.pink{background:var(--pink);color:#fff}
+    .btn.blue{background:var(--blue);color:#fff}
+    .section-title{
+      margin:28px 0 18px;
+      text-align:center;
+      color:var(--navy);
+      font-size:clamp(1.55rem,3vw,2.5rem);
+      font-weight:900;
+      letter-spacing:-.02em;
+    }
+    .section-title .heart{color:var(--pink)}
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      padding-bottom:10px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:0 10px 28px rgba(23,57,95,.06);
+      min-width:0;
+    }
+    .num{
+      width:42px;height:42px;
+      border-radius:50%;
+      display:grid;place-items:center;
+      color:#fff;font-weight:900;
+      margin-bottom:14px;
+    }
+    .card h2{
+      margin:0 0 8px;
+      font-size:1.55rem;
+      line-height:1.05;
+    }
+    .card p{color:var(--muted);margin:0 0 14px}
+    .pink-card .num{background:var(--pink)}
+    .pink-card h2{color:var(--pink-dark)}
+    .purple-card .num{background:var(--purple)}
+    .purple-card h2{color:var(--purple)}
+    .blue-card .num{background:var(--blue)}
+    .blue-card h2{color:var(--blue)}
+    ul.clean{list-style:none;padding:0;margin:0}
+    ul.clean li{
+      position:relative;
+      padding-left:28px;
+      margin:10px 0;
+      color:var(--ink);
+    }
+    ul.clean li::before{
+      content:"✓";
+      position:absolute;left:0;top:0;
+      font-weight:900;
+    }
+    .pink-card li::before{color:var(--pink)}
+    .purple-card li::before{color:var(--purple)}
+    .blue-card li::before{color:var(--blue)}
+    .mini{
+      margin-top:16px;
+      border-radius:16px;
+      padding:13px 14px;
+      font-weight:800;
+      font-size:.95rem;
+    }
+    .pink-card .mini{background:#fff1f6;color:var(--pink-dark)}
+    .purple-card .mini{background:#f5f0ff;color:var(--purple)}
+    .blue-card .mini{background:#eef7fd;color:#327fb3}
+    .benefits{
+      margin:22px 0;
+      display:grid;
+      grid-template-columns:1.6fr .8fr;
+      gap:18px;
+    }
+    .peace{
+      background:linear-gradient(135deg,var(--pink),#f48eb4);
+      color:#fff;
+      border-radius:26px;
+      padding:26px;
+    }
+    .peace h2{
+      margin:0 0 8px;
+      font-size:clamp(2rem,4vw,3.4rem);
+      line-height:1;
+      font-family:Georgia,serif;
+      font-style:italic;
+    }
+    .peace p{margin:0 0 20px;font-size:1.05rem}
+    .pillars{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+    }
+    .pillar{
+      border-left:1px solid rgba(255,255,255,.4);
+      padding-left:14px;
+      font-weight:800;
+    }
+    .buffer{
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:26px;
+      background:#fbfdff;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .buffer .phone{font-size:4rem;margin-bottom:8px}
+    .buffer h3{margin:0 0 10px;color:var(--pink-dark);font-size:1.8rem;line-height:1.05}
+    .buffer p{margin:0;color:var(--muted)}
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:12px;
+      padding:14px 0 32px;
+    }
+    .foot-item{
+      border-top:1px solid var(--line);
+      padding-top:14px;
+      text-align:center;
+    }
+    .foot-item b{display:block;color:var(--navy);margin-bottom:5px}
+    .foot-item span{color:var(--muted);font-size:.9rem}
+    .disclaimer{
+      color:#7a8998;
+      font-size:.82rem;
+      text-align:center;
+      padding:6px 0 34px;
+    }
+
+    @media (max-width: 900px){
+      .cards{grid-template-columns:1fr 1fr}
+      .cards .blue-card{grid-column:1/-1}
+      .benefits{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid .foot-item:last-child{grid-column:1/-1}
+    }
+
+    @media (max-width: 640px){
+      .wrap{width:min(94vw,620px)}
+      .hero{padding-top:14px}
+      .hero-banner{border-radius:18px}
+      .actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px}
+      .btn{width:100%;min-height:56px;font-size:1.05rem}
+      .section-title{font-size:1.75rem;margin-top:22px}
+      .cards{grid-template-columns:1fr}
+      .cards .blue-card{grid-column:auto}
+      .card{padding:20px}
+      .card h2{font-size:1.45rem}
+      .peace{padding:22px}
+      .peace h2{font-size:2.25rem}
+      .pillars{grid-template-columns:1fr 1fr}
+      .pillar{border-left:0;border-top:1px solid rgba(255,255,255,.35);padding:12px 0 0}
+      .footer-grid{grid-template-columns:1fr}
+      .footer-grid .foot-item:last-child{grid-column:auto}
+    }
   </style>
 </head>
 <body>
-  <main>
-    <div class="site-wrap">
-      <img class="site-image" src="site.png" alt="Free Help for Families — support without direct conflict">
-    </div>
-  </main>
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-banner">
+        <img src="hero-banner.png" alt="Free Help for Families">
+      </div>
+      <div class="actions">
+        <a class="btn pink" href="#financial">💬 Free Public Help</a>
+        <a class="btn blue" href="#personal">💬 $22 Personal Text Support</a>
+      </div>
+    </section>
+
+    <div class="section-title"><span class="heart">♥</span> SUPPORT WITHOUT DIRECT CONFLICT <span class="heart">♥</span></div>
+
+    <section class="cards">
+      <article class="card pink-card" id="financial">
+        <div class="num">1</div>
+        <h2>Zero Contact Financial Accountability</h2>
+        <ul class="clean">
+          <li>Money for child security, not revenge or control</li>
+          <li>FREE step by step guide, optional $22 personal support</li>
+          <li>Pre-screened, court-approved process servers for Family issues</li>
+        </ul>
+        <div class="mini">🔒 We ensure follow-through. You get results.</div>
+      </article>
+
+      <article class="card purple-card">
+        <div class="num">2</div>
+        <h2>3rd-Party Communication by Text</h2>
+        <p>Low-conflict, child-focused communication through text.</p>
+        <ul class="clean">
+          <li>Peaceful & respectful communication</li>
+          <li>Clear boundaries</li>
+          <li>Child-focused messaging</li>
+          <li>We keep emotions out of it.</li>
+        </ul>
+        <div class="mini">📅 Coming Soon</div>
+      </article>
+
+      <article class="card blue-card">
+        <div class="num">3</div>
+        <h2>Fatherhood Resources</h2>
+        <p>Support, opportunity, and accountability.</p>
+        <ul class="clean">
+          <li>Same-day & rapid cash jobs</li>
+          <li>Resume & job search help</li>
+          <li>State programs</li>
+          <li>Community events, activities & mentorship</li>
+        </ul>
+        <div class="mini">💪 Stronger men. Stronger families.<br>🤝 We help men take steps forward—for themselves and their children.</div>
+      </article>
+    </section>
+
+    <section class="benefits" id="personal">
+      <div class="peace">
+        <h2>More Peace. More Security.</h2>
+        <p>Less conflict. More stability. Stronger futures.</p>
+        <div class="pillars">
+          <div class="pillar">Less Stress</div>
+          <div class="pillar">More Protection</div>
+          <div class="pillar">More Stability</div>
+          <div class="pillar">Brighter Futures</div>
+        </div>
+      </div>
+      <div class="buffer">
+        <div class="phone">📱</div>
+        <h3>Your phone becomes your buffer</h3>
+        <p>We step in, communicate, and create accountability—so you can focus on you and your children.</p>
+      </div>
+    </section>
+
+    <section class="footer-grid">
+      <div class="foot-item"><b>You are not alone.</b><span>Support without added conflict.</span></div>
+      <div class="foot-item"><b>Private & Secure</b><span>Your information is confidential.</span></div>
+      <div class="foot-item"><b>Text-Based Support</b><span>Convenient, discreet, and effective.</span></div>
+      <div class="foot-item"><b>Affordable</b><span>High-impact support at a low cost.</span></div>
+      <div class="foot-item"><b>Child-Focused</b><span>Every message is centered on what’s best for children.</span></div>
+    </section>
+
+    <div class="disclaimer">Community education and support resource. No legal advice offered or implied.</div>
+  </div>
 </body>
 </html>
