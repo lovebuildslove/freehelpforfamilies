@@ -307,8 +307,118 @@
 
     <div class="disclaimer">Community education and support resource. No legal advice offered or implied.</div>
   </div>
-</body>
-<!-- TWILIO VERIFICATION COMPLIANCE SECTION -->
+  <section id="sms-signup" style="
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 24px 20px;
+  font-family: sans-serif;
+">
+
+  <h3>SMS Updates</h3>
+
+  <p>
+    Optional SMS updates: Enter your mobile number below if you would like to
+    receive informational updates and promotional alerts from FREE HELP FOR FAMILIES.
+  </p>
+
+  <form id="smsOptInForm" style="
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 18px;
+  ">
+
+    <label for="phone">
+      <strong>Mobile Phone Number:</strong>
+    </label>
+
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      placeholder="(555) 555-5555"
+      autocomplete="tel"
+      required
+      style="
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #aaa;
+        border-radius: 6px;
+      "
+    >
+
+    <div style="
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    ">
+
+      <input
+        type="checkbox"
+        id="smsConsent"
+        name="smsConsent"
+        value="yes"
+        required
+        style="
+          margin-top: 5px;
+          width: 18px;
+          height: 18px;
+          flex-shrink: 0;
+        "
+      >
+
+      <label for="smsConsent" style="line-height: 1.5;">
+        I agree to receive recurring automated marketing and informational
+        text messages from FREE HELP FOR FAMILIES at the phone number provided.
+        Consent is not a condition of purchase or receiving other services.
+        Message frequency may vary. Msg &amp; data rates may apply.
+        Reply <strong>STOP</strong> to cancel or <strong>HELP</strong> for help.
+        By opting in, I acknowledge the
+        <a href="#terms">SMS Terms &amp; Conditions</a>
+        and
+        <a href="#privacy-policy">Privacy Policy</a>.
+      </label>
+
+    </div>
+
+    <input
+      type="hidden"
+      id="consentSource"
+      name="consentSource"
+      value="https://lovebuildslove.github.io/freehelpforfamilies/"
+    >
+
+    <button
+      type="submit"
+      id="smsSubmitButton"
+      style="
+        padding: 13px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 6px;
+        border: 1px solid #333;
+      "
+    >
+      Sign Up for Text Updates
+    </button>
+
+    <p
+      id="smsFormMessage"
+      role="status"
+      aria-live="polite"
+      style="
+        display: none;
+        margin-top: 8px;
+        font-weight: bold;
+      "
+    ></p>
+
+  </form>
+
+</section>
+
+
 <footer id="privacy-policy" style="
   font-family: sans-serif;
   max-width: 700px;
@@ -347,7 +457,10 @@
     for marketing or promotional purposes.
   </p>
 
-  <h3 id="terms" style="margin-top: 28px;">Terms &amp; Conditions</h3>
+
+  <h3 id="terms" style="margin-top: 28px;">
+    Terms &amp; Conditions
+  </h3>
 
   <p>
     By using FREE HELP FOR FAMILIES, you agree that the information and
@@ -356,13 +469,14 @@
     or emergency services.
   </p>
 
+
   <h4>SMS Terms &amp; Communications</h4>
 
   <p>
     If you voluntarily opt in to receive text messages from FREE HELP FOR
     FAMILIES, you agree to receive recurring informational and promotional
-    SMS messages at the mobile number you provide. Message frequency may vary.
-    Message and data rates may apply.
+    SMS messages at the mobile number you provide.
+    Message frequency may vary. Message and data rates may apply.
   </p>
 
   <p>
@@ -385,6 +499,7 @@
     Wireless carriers are not liable for delayed or undelivered messages.
   </p>
 
+
   <p style="
     margin-top: 28px;
     padding-top: 18px;
@@ -396,4 +511,5 @@
     No legal advice offered or implied.
   </p>
 </footer>
+</body>
 </html>
