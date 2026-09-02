@@ -517,7 +517,7 @@ document.getElementById("smsOptInForm").addEventListener("submit", async functio
   messageBox.textContent = "";
 
   if (!consentChecked) {
-    messageBox.textContent = "Please check the consent box to sign up for SMS updates.";
+    messageBox.textContent = "Please check the consent box to sign up for SMS communication.";
     messageBox.style.display = "block";
     return;
   }
@@ -548,7 +548,7 @@ document.getElementById("smsOptInForm").addEventListener("submit", async functio
     }
 
     messageBox.textContent =
-      "Thank you! Your request to receive SMS updates has been recorded.";
+      "Thank you! Your request to receive SMS communication has been recorded.";
     messageBox.style.display = "block";
 
     form.reset();
@@ -562,7 +562,7 @@ document.getElementById("smsOptInForm").addEventListener("submit", async functio
 
   } finally {
     submitButton.disabled = false;
-    submitButton.textContent = "Sign Up for Text Updates";
+    submitButton.textContent = "Sign Up for Texts";
   }
 });
 </script>
