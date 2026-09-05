@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>$22 Personal Support | Free Help for Families</title>
+  <meta name="description" content="Optional personal support, encouragement, and community education from Free Help for Families.">
+  <style>
+    :root{
+      --pink:#ef6f9d;
+      --pink-dark:#d95486;
+      --navy:#17395f;
+      --blue:#4d9fda;
+      --purple:#8f6cc7;
+      --ink:#26384d;
+      --muted:#60738a;
+      --line:#dbe7f0;
+      --card:#ffffff;
+      --soft-pink:#fff1f6;
+      --soft-blue:#eef7fd;
+      --soft-peach:#fff4ee;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.45}
+    a{text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{width:min(1180px,92vw);margin:0 auto;padding:18px 0 34px}
+    .mini-nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:0 0 18px;font-weight:900}
+    .mini-nav a{color:var(--navy);font-size:1rem}.mini-nav a:hover{color:var(--pink-dark)}.mini-nav .divider{color:var(--line)}
+    .intro-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:stretch}
+    .story-card{background:linear-gradient(135deg,#fff 0%,var(--soft-pink) 100%);border:1px solid #f3d6e2;border-radius:24px;padding:26px;box-shadow:0 10px 28px rgba(23,57,95,.06)}
+    .story-card p{margin:0 0 15px;font-size:1.04rem}.story-card p:last-child{margin-bottom:0}.story-card strong{color:var(--navy)}
+    .hello{color:var(--pink-dark);font-size:1.6rem;font-weight:900}.emphasis{color:var(--pink-dark);font-weight:900}
+    .photo-card{position:relative;border-radius:24px;overflow:hidden;min-height:100%;border:0;background:transparent;box-shadow:none}
+    .photo-card img{width:100%;height:100%;object-fit:cover;object-position:center top}
+    .photo-card::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.42) 13%,rgba(255,255,255,0) 32%),linear-gradient(0deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,0) 22%)}
+    .privacy-bar{z-index:2;position:absolute;left:22.5%;top:43.5%;width:25%;height:2.8%;min-height:16px;background:#18b7c9;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.10)}
+    .rates-title{margin:26px 0 16px;color:var(--navy);font-size:clamp(1.35rem,2.8vw,2rem);line-height:1.15;font-weight:900;text-align:center}
+    .rates{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .rate-card{border-radius:24px;padding:22px;text-align:center;border:1px solid var(--line);box-shadow:0 10px 28px rgba(23,57,95,.06);min-width:0}
+    .rate-card.phone{background:var(--soft-pink)}.rate-card.text{background:linear-gradient(135deg,#f0fcff,#dff7fb)}.rate-card.meet{background:var(--soft-peach)}
+    .icon-circle{width:58px;height:58px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;color:#fff;font-size:1.7rem;font-weight:900}
+    .phone .icon-circle{background:var(--pink)}.text .icon-circle{background:#22b8c9}.meet .icon-circle{background:#ff6d6d}
+    .rate-card h2{margin:0 0 4px;color:var(--navy);font-size:1.35rem}.detail{color:var(--navy);font-weight:700;margin-bottom:10px}
+    .price{display:inline-block;background:#fff;color:var(--navy);border-radius:999px;padding:6px 20px;font-size:2.6rem;line-height:1;font-weight:900;margin-top:4px}
+    .meet .small{font-size:.92rem;line-height:1.35;margin-top:4px}.meet .small strong{color:var(--navy)}
+    .disclaimer{margin:18px 0;padding:18px 20px;border-radius:20px;background:linear-gradient(135deg,#e8fbff,#dff7fb);border:1px solid #cfeef3;text-align:center;color:var(--navy);font-weight:800}
+    .disclaimer span{display:block;margin-top:4px;font-weight:500}
+    .hiring-blurb{margin:18px 0;padding:22px 24px;border-radius:20px;background:#fff;border:2px solid var(--purple);box-shadow:0 10px 28px rgba(23,57,95,.06)}
+    .hiring-blurb h2{margin:0 0 10px;color:var(--purple);font-size:1.35rem;line-height:1.1}
+    .hiring-blurb p{margin:0 0 10px;color:var(--ink)}
+    .hiring-blurb p:last-child{margin-bottom:0}
+    .hiring-blurb strong{color:var(--navy)}
+    .hiring-blurb .email-link{font-weight:800;color:var(--pink-dark)}
+    .payment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+    .pay-btn{min-height:62px;border-radius:16px;padding:14px 16px;display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;font-weight:900;font-size:1.04rem;box-shadow:0 8px 20px rgba(23,57,95,.08);transition:transform .15s ease,box-shadow .15s ease}
+    .pay-btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(23,57,95,.12)}
+    .pay-icon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.18);font-size:1.25rem}
+    .cashapp{background:#00c244}.venmo{background:#168de2}.zelle{background:#6d1ed4}.applepay{background:#111}
+    .payment-note{margin:10px 0 0;text-align:center;color:var(--muted);font-size:.9rem}
+    @media(max-width:900px){.intro-grid{grid-template-columns:1fr}.rates{grid-template-columns:1fr 1fr}.rates .meet{grid-column:1/-1}.payment-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.wrap{width:min(94vw,620px);padding-top:12px}.mini-nav{gap:12px;margin-bottom:12px}.story-card{padding:20px;border-radius:20px}.story-card p{font-size:1rem}.hello{font-size:1.4rem}.photo-card{border-radius:20px}.rates{grid-template-columns:1fr}.rates .meet{grid-column:auto}.rate-card{padding:20px}.rates-title{text-align:left}.hiring-blurb{padding:18px 18px 19px}.hiring-blurb h2{font-size:1.2rem}.payment-grid{grid-template-columns:1fr}.pay-btn{min-height:58px;font-size:1rem}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="mini-nav" aria-label="Quick navigation">
+      <a href="../">← Home</a><span class="divider">|</span><a href="../freehelp/">← Free Help</a>
+    </nav>
+
+    <section class="intro-grid">
+      <div class="story-card">
+        <p><span class="hello">My name is Omega!</span> I built this self-help website to help parents like me: Working hard to provide as much as possible to their child, while their other parent ignores his basic needs and refuses to communicate respectfully.</p>
+        <p>I know how draining, demeaning and depressing, it is to communicate with the parent, the Child Support Enforcement agency, Division of Child &amp; Family Services, and Divorce / Family lawyers.</p>
+        <p>When I found out about a new way to hold my child's parent accountable, without interacting with <strong>ANY</strong> of those broken systems, I wanted every other hard-working, unsupported single parent in GA to find out too!</p>
+        <p>As of <strong>July 1, 2026</strong> child abandonment warrants are a <span class="emphasis">QUICKER, EASIER, CHEAPER &amp; MORE EFFECTIVE</span> way to hold non-supportive parents accountable.</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="IMG_1794.jpeg" alt="Omega with her child in Duluth, Georgia">
+        <div class="privacy-bar" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <div class="rates-title">If you want personal support to get through the process, here are my rates:</div>
+
+    <section class="rates" aria-label="Personal support rates">
+      <article class="rate-card phone"><div class="icon-circle">☎</div><h2>Phone Call</h2><div class="detail">up to 15 minutes</div><div class="price">$22</div></article>
+      <article class="rate-card text"><div class="icon-circle">•••</div><h2>Text Support</h2><div class="detail">up to 1 hour</div><div class="price">$22</div></article>
+      <article class="rate-card meet"><div class="icon-circle">👥</div><h2>Meetup in Person</h2><div class="detail">2 person minimum</div><div class="small">at Gwinnett County Jail Court Annex<br>up to 2 hours of<br><strong>SOCIAL SUPPORT &amp; COMMUNITY EDUCATION</strong></div><div class="price">$22</div></article>
+    </section>
+
+    <div class="disclaimer">I am NOT an attorney. I am NOT a licensed social worker.<br>I am just a Mom standing up for my rights, and so can you!<span>Community service. Opt-in only. No legal advice offered or implied.</span></div>
+
+    <section class="hiring-blurb" aria-label="Hiring interest">
+      <h2>Want to help other families?</h2>
+      <p>We’re building a paid peer-support team and are especially interested in people who speak <strong>English, Spanish, Vietnamese, Korean, or Chinese.</strong></p>
+      <p>Email your résumé and <strong>one sentence about any relevant lived or work experience</strong> — including self-filing, working with process servers, helping families access resources, or teaching reading, writing, or basic form completion.</p>
+      <p><strong>Lived experience counts.</strong> <a class="email-link" href="mailto:omegavirtualsolutioms@gmail.com">omegavirtualsolutioms@gmail.com</a></p>
+    </section>
+
+    <section class="payment-grid" aria-label="Payment options">
+      <a class="pay-btn cashapp" href="https://cash.app/$OmegaCares22" target="_blank" rel="noopener" aria-label="Pay by Cash App to $OmegaCares22"><span class="pay-icon">$</span>Cash App&nbsp; $OmegaCares22</a>
+      <a class="pay-btn venmo" href="https://venmo.com/u/OmegaCares22" target="_blank" rel="noopener" aria-label="Pay by Venmo to @OmegaCares22"><span class="pay-icon">V</span>Venmo&nbsp; @OmegaCares22</a>
+      <a class="pay-btn zelle" href="#" data-copy="omegavirtualsolutioms@gmail.com" aria-label="Copy Zelle email omegavirtualsolutioms@gmail.com"><span class="pay-icon">Z</span>Zelle&nbsp; omegavirtualsolutioms@gmail.com</a>
+      <a class="pay-btn applepay" href="#" data-copy="omegavirtualsolutioms@gmail.com" aria-label="Copy Apple Pay email omegavirtualsolutioms@gmail.com"><span class="pay-icon"></span>Apple Pay&nbsp; omegavirtualsolutioms@gmail.com</a>
+    </section>
+    <p class="payment-note" id="payment-note">Cash App and Venmo open directly. Tap Zelle or Apple Pay to copy the payment email.</p>
+  </main>
+  <script>
+    document.querySelectorAll('[data-copy]').forEach(function(link){
+      link.addEventListener('click', async function(event){
+        event.preventDefault();
+        const value = this.dataset.copy;
+        const note = document.getElementById('payment-note');
+        try {
+          await navigator.clipboard.writeText(value);
+          note.textContent = value + ' copied — paste it into Zelle or Apple Pay.';
+        } catch (error) {
+          note.textContent = 'Use ' + value + ' for Zelle or Apple Pay.';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
