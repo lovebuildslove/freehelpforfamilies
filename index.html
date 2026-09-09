@@ -13,7 +13,7 @@
       --blue:#4d9fda;
       --purple:#8f6cc7;
       --ink:#26384d;
-      --muted:#60738a;sms
+      --muted:#60738a;
       --line:#dbe7f0;
       --card:#ffffff;
     }
@@ -308,75 +308,50 @@
     <div class="disclaimer">Community education and support resource. No legal advice offered or implied.</div>
   </div>
 
-  <section id="sms-signup" style="
-  max-width: 700px;
-  margin: 30px auto;
-  padding: 24px 20px;
-  font-family: sans-serif;
-">
-
+  <section id="sms-signup" class="sms-signup">
   <h3>Communication Tool — Coming Soon</h3>
 
   <p>
-    We’re still building and testing our optional text-based communication tool. It is not available yet. Enter your mobile number below if you would like updates about testing and availability for this service.
+    We’re still building and testing our optional text-based communication tool.
+    It is not available yet. Enter your mobile number below if you would like
+    updates about testing and availability for this service.
   </p>
 
-  <form id="smsOptInForm" style="
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-top: 18px;
-  ">
+  <form id="smsOptInForm" class="sms-form">
 
     <label for="phone">
       <strong>Mobile Phone Number:</strong>
     </label>
 
     <input
+      class="sms-input"
       type="tel"
       id="phone"
       name="phone"
       placeholder="(555) 555-5555"
       autocomplete="tel"
       required
-      style="
-        padding: 12px;
-        font-size: 16px;
-        border: 1px solid #aaa;
-        border-radius: 6px;
-      "
     >
 
-    <div style="
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    ">
-
+    <div class="sms-consent">
       <input
         type="checkbox"
         id="smsConsent"
         name="smsConsent"
         value="yes"
         required
-        style="
-          margin-top: 5px;
-          width: 18px;
-          height: 18px;
-          flex-shrink: 0;
-        "
       >
 
-      <label for="smsConsent" style="line-height: 1.5;">
-        I agree to receive recurring automated text messages from FREE HELP FOR FAMILIES related to use of its structured family communication service at the phone number provided.
-Consent is not a condition of purchase or receiving other services.
+      <label for="smsConsent">
+        I agree to receive recurring automated text messages from FREE HELP FOR FAMILIES
+        related to use of its structured family communication service at the phone number provided.
+        Consent is not a condition of purchase or receiving other services.
         Reply <strong>STOP</strong> to cancel or <strong>HELP</strong> for help.
         By opting in, I acknowledge the
         <a href="#terms">SMS Terms &amp; Conditions</a>
         and
         <a href="#privacy-policy">Privacy Policy</a>.
       </label>
-
     </div>
 
     <input
@@ -389,14 +364,7 @@ Consent is not a condition of purchase or receiving other services.
     <button
       type="submit"
       id="smsSubmitButton"
-      style="
-        padding: 13px 20px;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        border-radius: 6px;
-        border: 1px solid #333;
-      "
+      class="sms-submit"
     >
       Sign Up for Text Updates
     </button>
@@ -405,15 +373,10 @@ Consent is not a condition of purchase or receiving other services.
       id="smsFormMessage"
       role="status"
       aria-live="polite"
-      style="
-        display: none;
-        margin-top: 8px;
-        font-weight: bold;
-      "
+      class="sms-message"
     ></p>
 
   </form>
-
 </section>
 
 
