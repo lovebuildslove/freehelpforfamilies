@@ -375,19 +375,40 @@
     .pay-btn{
       min-height:62px;
       border-radius:16px;
-      padding:14px 16px;
+      padding:12px 16px;
       display:flex;
       align-items:center;
-      justify-content:center;
+      justify-content:flex-start;
       gap:10px;
       color:#fff;
       font-weight:900;
-      font-size:1.04rem;
+      font-size:1rem;
       box-shadow:0 8px 20px rgba(23,57,95,.08);
       transition:transform .15s ease,box-shadow .15s ease;
       border:0;
       cursor:pointer;
       width:100%;
+      text-align:left;
+    }
+
+    .pay-label{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      line-height:1.15;
+      min-width:0;
+    }
+
+    .pay-label .pay-name{
+      font-weight:900;
+    }
+
+    .pay-label .pay-detail{
+      font-size:.82rem;
+      font-weight:700;
+      opacity:.95;
+      margin-top:3px;
+      overflow-wrap:anywhere;
     }
 
     .pay-btn:hover{
@@ -878,7 +899,10 @@
         aria-label="Pay by Cash App to $OmegaCares22"
       >
         <span class="pay-icon">$</span>
-        Cash App&nbsp; $OmegaCares22
+        <span class="pay-label">
+          <span class="pay-name">Cash App</span>
+          <span class="pay-detail">$OmegaCares22</span>
+        </span>
       </a>
 
 
@@ -892,7 +916,10 @@
         aria-label="Pay by Venmo to @OmegaCares22"
       >
         <span class="pay-icon">V</span>
-        Venmo&nbsp; @OmegaCares22
+        <span class="pay-label">
+          <span class="pay-name">Venmo</span>
+          <span class="pay-detail">@OmegaCares22</span>
+        </span>
       </a>
 
 
@@ -905,7 +932,10 @@
         aria-label="Pay with Zelle"
       >
         <span class="pay-icon">Z</span>
-        Zelle&nbsp; lovebuildslove@gmail.com
+        <span class="pay-label">
+          <span class="pay-name">Zelle</span>
+          <span class="pay-detail">lovebuildslove@gmail.com</span>
+        </span>
       </button>
 
 
@@ -918,7 +948,10 @@
         aria-label="Pay with Apple Cash"
       >
         <span class="pay-icon"></span>
-        Apple Cash&nbsp; lovebuildslove@gmail.com
+        <span class="pay-label">
+          <span class="pay-name">Apple Cash</span>
+          <span class="pay-detail">lovebuildslove@gmail.com</span>
+        </span>
       </button>
 
 
