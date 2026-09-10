@@ -1,11 +1,17 @@
-
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>$22 Personal Support | Free Help for Families</title>
-  <meta name="description" content="Optional personal support, encouragement, and community education from Free Help for Families.">
+
+  <meta
+    name="description"
+    content="Optional personal support, encouragement, and community education from Free Help for Families."
+  >
+
   <style>
     :root{
       --pink:#ef6f9d;
@@ -21,125 +27,1118 @@
       --soft-blue:#eef7fd;
       --soft-peach:#fff4ee;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.45}
-    a{text-decoration:none}
-    img{max-width:100%;display:block}
-    .wrap{width:min(1180px,92vw);margin:0 auto;padding:18px 0 34px}
-    .mini-nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:0 0 18px;font-weight:900}
-    .mini-nav a{color:var(--navy);font-size:1rem}.mini-nav a:hover{color:var(--pink-dark)}.mini-nav .divider{color:var(--line)}
-    .intro-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:stretch}
-    .story-card{background:linear-gradient(135deg,#fff 0%,var(--soft-pink) 100%);border:1px solid #f3d6e2;border-radius:24px;padding:26px;box-shadow:0 10px 28px rgba(23,57,95,.06)}
-    .story-card p{margin:0 0 15px;font-size:1.04rem}.story-card p:last-child{margin-bottom:0}.story-card strong{color:var(--navy)}
-    .hello{color:var(--pink-dark);font-size:1.6rem;font-weight:900}.emphasis{color:var(--pink-dark);font-weight:900}
-    .photo-card{position:relative;border-radius:24px;overflow:hidden;min-height:100%;border:0;background:transparent;box-shadow:none}
-    .photo-card img{width:100%;height:100%;object-fit:cover;object-position:center top}
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--ink);
+      background:#fff;
+      line-height:1.45;
+    }
+
+    body.modal-open{
+      overflow:hidden;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    button{
+      font:inherit;
+    }
+
+    .wrap{
+      width:min(1180px,92vw);
+      margin:0 auto;
+      padding:18px 0 34px;
+    }
+
+    .mini-nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      flex-wrap:wrap;
+      margin:0 0 18px;
+      font-weight:900;
+    }
+
+    .mini-nav a{
+      color:var(--navy);
+      font-size:1rem;
+    }
+
+    .mini-nav a:hover{
+      color:var(--pink-dark);
+    }
+
+    .mini-nav .divider{
+      color:var(--line);
+    }
+
+    .intro-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .story-card{
+      background:linear-gradient(135deg,#fff 0%,var(--soft-pink) 100%);
+      border:1px solid #f3d6e2;
+      border-radius:24px;
+      padding:26px;
+      box-shadow:0 10px 28px rgba(23,57,95,.06);
+      display:flex;
+      flex-direction:column;
+    }
+
+    .story-card p{
+      margin:0 0 15px;
+      font-size:1.04rem;
+    }
+
+    .story-card strong{
+      color:var(--navy);
+    }
+
+    .hello{
+      color:var(--pink-dark);
+      font-size:1.6rem;
+      font-weight:900;
+    }
+
+    .emphasis{
+      color:var(--pink-dark);
+      font-weight:900;
+    }
+
+    .bio-payoff{
+      color:var(--navy);
+      font-weight:900;
+    }
+
+    .warrant-note{
+      margin-top:2px;
+    }
+
+    /* CONTACT OLIVIA */
+
+    .contact-block{
+      margin-top:auto;
+      padding-top:18px;
+      border-top:1px solid #efd5df;
+    }
+
+    .contact-title{
+      margin:0 0 9px;
+      color:var(--pink-dark);
+      font-size:1.05rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+
+    .contact-links{
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+    }
+
+    .contact-links a{
+      color:var(--navy);
+      font-weight:900;
+      width:max-content;
+      max-width:100%;
+    }
+
+    .contact-links a:hover{
+      color:var(--pink-dark);
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+
+    .photo-card{
+      position:relative;
+      border-radius:24px;
+      overflow:hidden;
+      min-height:100%;
+      border:0;
+      background:transparent;
+      box-shadow:none;
+    }
+
+    .photo-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center top;
+    }
+
     .photo-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:1;
-  pointer-events:none;
-  background:
-    linear-gradient(90deg,
-      rgba(255,255,255,.88) 0%,
-      rgba(255,255,255,.28) 7%,
-      rgba(255,255,255,0) 16%
-    ),
-    linear-gradient(0deg,
-      rgba(255,255,255,.82) 0%,
-      rgba(255,255,255,0) 11%
-    );
-}
-    
-    .rates-title{margin:26px 0 16px;color:var(--navy);font-size:clamp(1.35rem,2.8vw,2rem);line-height:1.15;font-weight:900;text-align:center}
-    .rates{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .rate-card{border-radius:24px;padding:22px;text-align:center;border:1px solid var(--line);box-shadow:0 10px 28px rgba(23,57,95,.06);min-width:0}
-    .rate-card.phone{background:var(--soft-pink)}.rate-card.text{background:linear-gradient(135deg,#f0fcff,#dff7fb)}.rate-card.meet{background:var(--soft-peach)}
-    .icon-circle{width:58px;height:58px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;color:#fff;font-size:1.7rem;font-weight:900}
-    .phone .icon-circle{background:var(--pink)}.text .icon-circle{background:#22b8c9}.meet .icon-circle{background:#ff6d6d}
-    .rate-card h2{margin:0 0 4px;color:var(--navy);font-size:1.35rem}.detail{color:var(--navy);font-weight:700;margin-bottom:10px}
-    .price{display:inline-block;background:#fff;color:var(--navy);border-radius:999px;padding:6px 20px;font-size:2.6rem;line-height:1;font-weight:900;margin-top:4px}
-    .meet .small{font-size:.92rem;line-height:1.35;margin-top:4px}.meet .small strong{color:var(--navy)}
-    .disclaimer{margin:18px 0;padding:18px 20px;border-radius:20px;background:linear-gradient(135deg,#e8fbff,#dff7fb);border:1px solid #cfeef3;text-align:center;color:var(--navy);font-weight:800}
-    .disclaimer span{display:block;margin-top:4px;font-weight:500}
-    .hiring-blurb{margin:18px 0;padding:22px 24px;border-radius:20px;background:#fff;border:2px solid var(--purple);box-shadow:0 10px 28px rgba(23,57,95,.06)}
-    .hiring-blurb h2{margin:0 0 10px;color:var(--purple);font-size:1.35rem;line-height:1.1}
-    .hiring-blurb p{margin:0 0 10px;color:var(--ink)}
-    .hiring-blurb p:last-child{margin-bottom:0}
-    .hiring-blurb strong{color:var(--navy)}
-    .hiring-blurb .email-link{font-weight:800;color:var(--pink-dark)}
-    .payment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
-    .pay-btn{min-height:62px;border-radius:16px;padding:14px 16px;display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;font-weight:900;font-size:1.04rem;box-shadow:0 8px 20px rgba(23,57,95,.08);transition:transform .15s ease,box-shadow .15s ease}
-    .pay-btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(23,57,95,.12)}
-    .pay-icon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.18);font-size:1.25rem}
-    .cashapp{background:#00c244}.venmo{background:#168de2}.zelle{background:#6d1ed4}.applepay{background:#111}
-    .payment-note{margin:10px 0 0;text-align:center;color:var(--muted);font-size:.9rem}
-    @media(max-width:900px){.intro-grid{grid-template-columns:1fr}.rates{grid-template-columns:1fr 1fr}.rates .meet{grid-column:1/-1}.payment-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:640px){.wrap{width:min(94vw,620px);padding-top:12px}.mini-nav{gap:12px;margin-bottom:12px}.story-card{padding:20px;border-radius:20px}.story-card p{font-size:1rem}.hello{font-size:1.4rem}.photo-card{border-radius:20px}.rates{grid-template-columns:1fr}.rates .meet{grid-column:auto}.rate-card{padding:20px}.rates-title{text-align:left}.hiring-blurb{padding:18px 18px 19px}.hiring-blurb h2{font-size:1.2rem}.payment-grid{grid-template-columns:1fr}.pay-btn{min-height:58px;font-size:1rem}}
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:1;
+      pointer-events:none;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.88) 0%,
+          rgba(255,255,255,.28) 7%,
+          rgba(255,255,255,0) 16%
+        ),
+        linear-gradient(
+          0deg,
+          rgba(255,255,255,.82) 0%,
+          rgba(255,255,255,0) 11%
+        );
+    }
+
+    .rates-title{
+      margin:26px 0 16px;
+      color:var(--navy);
+      font-size:clamp(1.35rem,2.8vw,2rem);
+      line-height:1.15;
+      font-weight:900;
+      text-align:center;
+    }
+
+    .rates{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .rate-card{
+      border-radius:24px;
+      padding:22px;
+      text-align:center;
+      border:1px solid var(--line);
+      box-shadow:0 10px 28px rgba(23,57,95,.06);
+      min-width:0;
+    }
+
+    .rate-card.phone{
+      background:var(--soft-pink);
+    }
+
+    .rate-card.text{
+      background:linear-gradient(135deg,#f0fcff,#dff7fb);
+    }
+
+    .rate-card.meet{
+      background:var(--soft-peach);
+    }
+
+    .icon-circle{
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      margin:0 auto 10px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-size:1.7rem;
+      font-weight:900;
+    }
+
+    .phone .icon-circle{
+      background:var(--pink);
+    }
+
+    .text .icon-circle{
+      background:#22b8c9;
+    }
+
+    .meet .icon-circle{
+      background:#ff6d6d;
+    }
+
+    .rate-card h2{
+      margin:0 0 4px;
+      color:var(--navy);
+      font-size:1.35rem;
+    }
+
+    .detail{
+      color:var(--navy);
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .price{
+      display:inline-block;
+      background:#fff;
+      color:var(--navy);
+      border-radius:999px;
+      padding:6px 20px;
+      font-size:2.6rem;
+      line-height:1;
+      font-weight:900;
+      margin-top:4px;
+    }
+
+    .price-label{
+      display:block;
+      margin-top:7px;
+      color:var(--navy);
+      font-size:.9rem;
+      font-weight:900;
+    }
+
+    .meet .small{
+      font-size:.92rem;
+      line-height:1.35;
+      margin-top:4px;
+    }
+
+    .meet .small strong{
+      color:var(--navy);
+    }
+
+    .disclaimer{
+      margin:18px 0;
+      padding:18px 20px;
+      border-radius:20px;
+      background:linear-gradient(135deg,#e8fbff,#dff7fb);
+      border:1px solid #cfeef3;
+      text-align:center;
+      color:var(--navy);
+      font-weight:800;
+    }
+
+    .disclaimer span{
+      display:block;
+      margin-top:4px;
+      font-weight:500;
+    }
+
+    /* HIRING */
+
+    .hiring-blurb{
+      margin:18px 0;
+      padding:22px 24px;
+      border-radius:20px;
+      background:#fff;
+      border:2px solid var(--purple);
+      box-shadow:0 10px 28px rgba(23,57,95,.06);
+    }
+
+    .hiring-blurb h2{
+      margin:0 0 10px;
+      color:var(--purple);
+      font-size:1.35rem;
+      line-height:1.1;
+    }
+
+    .hiring-blurb p{
+      margin:0 0 10px;
+      color:var(--ink);
+    }
+
+    .hiring-blurb p:last-child{
+      margin-bottom:0;
+    }
+
+    .hiring-blurb strong{
+      color:var(--navy);
+    }
+
+    .hiring-blurb .email-link{
+      font-weight:800;
+      color:var(--pink-dark);
+    }
+
+    /* PAYMENT BUTTONS */
+
+    .payment-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .pay-btn{
+      min-height:62px;
+      border-radius:16px;
+      padding:14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      color:#fff;
+      font-weight:900;
+      font-size:1.04rem;
+      box-shadow:0 8px 20px rgba(23,57,95,.08);
+      transition:transform .15s ease,box-shadow .15s ease;
+      border:0;
+      cursor:pointer;
+      width:100%;
+    }
+
+    .pay-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px rgba(23,57,95,.12);
+    }
+
+    .pay-icon{
+      width:36px;
+      height:36px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.18);
+      font-size:1.25rem;
+      flex:0 0 36px;
+    }
+
+    .cashapp{
+      background:#00c244;
+    }
+
+    .venmo{
+      background:#168de2;
+    }
+
+    .zelle{
+      background:#6d1ed4;
+    }
+
+    .applecash{
+      background:#111;
+    }
+
+    .payment-note{
+      margin:10px 0 0;
+      text-align:center;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    /* POPUP / MODAL */
+
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      background:rgba(18,31,48,.62);
+      padding:20px;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal.show{
+      display:flex;
+    }
+
+    .modal-card{
+      width:min(440px,94vw);
+      max-height:92vh;
+      overflow-y:auto;
+      background:#fff;
+      border-radius:24px;
+      padding:24px;
+      position:relative;
+      text-align:center;
+      box-shadow:0 22px 60px rgba(0,0,0,.25);
+    }
+
+    .modal-card h2{
+      margin:2px 34px 8px;
+      color:var(--navy);
+      font-size:1.55rem;
+    }
+
+    .modal-card p{
+      margin:8px 0 14px;
+      color:var(--ink);
+    }
+
+    .modal-close{
+      position:absolute;
+      top:12px;
+      right:14px;
+      width:38px;
+      height:38px;
+      border:0;
+      border-radius:50%;
+      background:#f1f4f7;
+      color:var(--navy);
+      font-size:1.5rem;
+      line-height:1;
+      cursor:pointer;
+      font-weight:900;
+    }
+
+    .modal-close:hover{
+      background:#e5ebf0;
+    }
+
+    .zelle-qr-image{
+      width:100%;
+      max-width:320px;
+      height:auto;
+      margin:16px auto;
+      border-radius:16px;
+    }
+
+    .payment-email{
+      display:inline-block;
+      color:var(--navy);
+      font-weight:900;
+      overflow-wrap:anywhere;
+    }
+
+    .payment-email:hover{
+      color:var(--pink-dark);
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+
+    .modal-action{
+      min-height:52px;
+      margin-top:12px;
+      border-radius:999px;
+      padding:13px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      color:#fff;
+    }
+
+    .zelle-action{
+      background:#6d1ed4;
+    }
+
+    .apple-action{
+      background:#111;
+    }
+
+    .modal-small{
+      font-size:.86rem;
+      color:var(--muted) !important;
+      margin-bottom:2px !important;
+    }
+
+    @media(max-width:900px){
+
+      .intro-grid{
+        grid-template-columns:1fr;
+      }
+
+      .rates{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .rates .meet{
+        grid-column:1/-1;
+      }
+
+      .payment-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .contact-block{
+        margin-top:18px;
+      }
+    }
+
+    @media(max-width:640px){
+
+      .wrap{
+        width:min(94vw,620px);
+        padding-top:12px;
+      }
+
+      .mini-nav{
+        gap:12px;
+        margin-bottom:12px;
+      }
+
+      .story-card{
+        padding:20px;
+        border-radius:20px;
+      }
+
+      .story-card p{
+        font-size:1rem;
+      }
+
+      .hello{
+        font-size:1.4rem;
+      }
+
+      .photo-card{
+        border-radius:20px;
+      }
+
+      .rates{
+        grid-template-columns:1fr;
+      }
+
+      .rates .meet{
+        grid-column:auto;
+      }
+
+      .rate-card{
+        padding:20px;
+      }
+
+      .rates-title{
+        text-align:left;
+      }
+
+      .hiring-blurb{
+        padding:18px 18px 19px;
+      }
+
+      .hiring-blurb h2{
+        font-size:1.2rem;
+      }
+
+      .payment-grid{
+        grid-template-columns:1fr;
+      }
+
+      .pay-btn{
+        min-height:58px;
+        font-size:1rem;
+      }
+
+      .modal-card{
+        padding:22px 18px 20px;
+        border-radius:20px;
+      }
+
+      .zelle-qr-image{
+        max-width:280px;
+      }
+    }
   </style>
 </head>
+
+
 <body>
+
   <main class="wrap">
+
     <nav class="mini-nav" aria-label="Quick navigation">
-      <a href="../">← Home</a><span class="divider">|</span><a href="../freehelp/">← Free Help</a>
+      <a href="../">← Home</a>
+      <span class="divider">|</span>
+      <a href="../freehelp/">← Free Help</a>
     </nav>
 
+
+    <!-- INTRO / BIO -->
+
     <section class="intro-grid">
+
       <div class="story-card">
-        <p><span class="hello">My name is Olivia Fradin.</span> I built this self-help website to help parents like me: Working hard to provide as much as possible to their child, while their other parent ignores his basic needs and refuses to communicate respectfully.</p>
-        <p>I know how draining, demeaning and even depressing it can be to communicate directly with the parent, the Child Support Enforcement agency, Division of Child &amp; Family Services, and Divorce / Family lawyers.</p>
-        <p>When I found out about a new way to hold my child's parent accountable, without interacting with <strong>ANY</strong> of them, I wanted every other unsupported single parent in GA to find out too!</p>
-        <p>As of <strong>July 1, 2026</strong> child abandonment warrants are a <span class="emphasis">QUICKER, EASIER, CHEAPER &amp; MORE EFFECTIVE</span> way to hold non-supportive parents accountable.</p>
+
+        <p>
+          <span class="hello">My name is Olivia Fradin.</span>
+          I built this self-help website for parents like me: working hard to give
+          their child what they need while the other parent is not providing support.
+        </p>
+
+        <p>
+          I know how draining, confusing, and even depressing it can be to communicate
+          with the other parent, Child Support Enforcement, the Division of Family
+          &amp; Children Services, and divorce or family-law attorneys.
+        </p>
+
+        <p class="bio-payoff">
+          You may not have to deal with ANY of them, to get consistent support for your child.
+        </p>
+
+        <p class="warrant-note">
+          As of <strong>July 1, 2026</strong>, Georgia's child abandonment warrant
+          process may offer some parents whose child is receiving
+          <strong>no support from the other parent</strong> a
+          <span class="emphasis">quicker, simpler, and more affordable</span>
+          way to seek consistent support.
+        </p>
+
+
+        <!-- CONTACT OLIVIA -->
+
+        <div class="contact-block">
+
+          <div class="contact-title">
+            Contact Olivia
+          </div>
+
+          <div class="contact-links">
+
+            <a
+              href="tel:+18552885683"
+              aria-label="Call Olivia at 855 288 LOVE"
+            >
+              ☎ (855) 288-LOVE
+            </a>
+
+            <a
+              href="mailto:lovebuildslove@gmail.com"
+              aria-label="Email Olivia at lovebuildslove@gmail.com"
+            >
+              ✉ lovebuildslove@gmail.com
+            </a>
+
+          </div>
+
+        </div>
+
       </div>
+
 
       <div class="photo-card">
-        <img src="IMG_1794.jpeg" alt="Olivia Fradin, founder of peer to peer child security & parent support services in Gwinnett County, Georgia, voting in Duluth GA">
-    
+
+        <img
+          src="IMG_1794.jpeg"
+          alt="Olivia Fradin, founder of peer-to-peer child security and parent support services in Gwinnett County, Georgia"
+        >
+
       </div>
+
     </section>
 
-    <div class="rates-title">If you want personal support to get through the process, here are my rates:</div>
+
+    <!-- RATES -->
+
+    <div class="rates-title">
+      If you want personal support to get through the process, here are my rates:
+    </div>
+
 
     <section class="rates" aria-label="Personal support rates">
-      <article class="rate-card phone"><div class="icon-circle">☎</div><h2>Phone Call</h2><div class="detail">up to 15 minutes</div><div class="price">$22</div></article>
-      <article class="rate-card text"><div class="icon-circle">•••</div><h2>Text Support</h2><div class="detail">up to 1 hour</div><div class="price">$22</div></article>
-      <article class="rate-card meet"><div class="icon-circle">👥</div><h2>Meetup in Person</h2><div class="detail">2 person minimum</div><div class="small">at Gwinnett County Jail Court Annex or Duluth Library<br>up to 2 hours of<br><strong>SOCIAL SUPPORT &amp; COMMUNITY EDUCATION</strong></div><div class="price">$11</div></article>
+
+
+      <article class="rate-card phone">
+
+        <div class="icon-circle">
+          ☎
+        </div>
+
+        <h2>
+          Phone Call
+        </h2>
+
+        <div class="detail">
+          up to 15 minutes
+        </div>
+
+        <div class="price">
+          $22
+        </div>
+
+      </article>
+
+
+      <article class="rate-card text">
+
+        <div class="icon-circle">
+          •••
+        </div>
+
+        <h2>
+          Text Support
+        </h2>
+
+        <div class="detail">
+          up to 1 hour
+        </div>
+
+        <div class="price">
+          $22
+        </div>
+
+      </article>
+
+
+      <article class="rate-card meet">
+
+        <div class="icon-circle">
+          👥
+        </div>
+
+        <h2>
+          Meetup in Person
+        </h2>
+
+        <div class="detail">
+          2-person minimum
+        </div>
+
+        <div class="small">
+
+          Gwinnett County Jail Court Annex<br>
+          or Duluth Library<br><br>
+
+          up to 2 hours of<br>
+
+          <strong>
+            SOCIAL SUPPORT &amp; COMMUNITY EDUCATION
+          </strong>
+
+        </div>
+
+        <div class="price">
+          $11
+        </div>
+
+        <span class="price-label">
+          per person
+        </span>
+
+      </article>
+
     </section>
 
-    <div class="disclaimer">I am NOT an attorney. I am NOT a licensed social worker.<br>I am just a Mom standing up for my rights, and so can you!<span>Community service. Opt-in only. No legal advice offered or implied.</span></div>
+
+    <!-- DISCLAIMER -->
+
+    <div class="disclaimer">
+
+      I am NOT an attorney. I am NOT a licensed social worker.<br>
+
+      I am just a Mom standing up for my rights, and so can you!
+
+      <span>
+        Community service. Opt-in only. No legal advice offered or implied.
+      </span>
+
+    </div>
+
+
+    <!-- HIRING -->
 
     <section class="hiring-blurb" aria-label="Hiring interest">
-      <h2>Want to help other families?</h2>
-      <p>I'm building a paid peer-support team and especially interested in people who speak <strong>English and Spanish, Vietnamese, Korean or Chinese.</strong></p>
-      <p>Email your résumé and <strong>one short paragraph about how & why you are interested in helping parents</strong> — including self-filing, working with process servers, helping families access resources, and general skill-teaching.</p>
-      <p><strong>Lived experience counts.</strong> <a class="email-link" href="mailto:omegavirtualsolutions@gmail.com">omegavirtualsolutions@gmail.com</a></p>
+
+      <h2>
+        Want to help other families?
+      </h2>
+
+      <p>
+        I'm building a paid peer-support team and am especially interested in
+        <strong>
+          bilingual people who speak English plus Spanish, Vietnamese, Korean, or Chinese.
+        </strong>
+      </p>
+
+      <p>
+        Email your résumé and
+        <strong>
+          one short paragraph about why you're interested in helping parents
+        </strong>
+        — whether through self-filing support, working with process servers,
+        connecting families with resources, or sharing practical skills and experience.
+      </p>
+
+      <p>
+        <strong>Lived experience counts.</strong>
+        <a
+          class="email-link"
+          href="mailto:lovebuildslove@gmail.com"
+        >
+          lovebuildslove@gmail.com
+        </a>
+      </p>
+
     </section>
 
+
+    <!-- PAYMENT OPTIONS -->
+
     <section class="payment-grid" aria-label="Payment options">
-      <a class="pay-btn cashapp" href="https://cash.app/$OmegaCares22" target="_blank" rel="noopener" aria-label="Pay by Cash App to $OmegaCares22"><span class="pay-icon">$</span>Cash App&nbsp; $OmegaCares22</a>
-      <a class="pay-btn venmo" href="https://venmo.com/u/OmegaCares22" target="_blank" rel="noopener" aria-label="Pay by Venmo to @OmegaCares22"><span class="pay-icon">V</span>Venmo&nbsp; @OmegaCares22</a>
-      <a class="pay-btn zelle" href="#" data-copy="omegavirtualsolutions@gmail.com" aria-label="Copy Zelle email omegavirtualsolutions@gmail.com"><span class="pay-icon">Z</span>Zelle&nbsp; omegavirtualsolutions@gmail.com</a>
-      <a class="pay-btn applepay" href="#" data-copy="omegavirtualsolutions@gmail.com" aria-label="Copy Apple Pay email omegavirtualsolutions@gmail.com"><span class="pay-icon"></span>Apple Pay&nbsp; omegavirtualsolutions@gmail.com</a>
+
+
+      <!-- CASH APP -->
+
+      <a
+        class="pay-btn cashapp"
+        href="https://cash.app/$OmegaCares22"
+        target="_blank"
+        rel="noopener"
+        aria-label="Pay by Cash App to $OmegaCares22"
+      >
+        <span class="pay-icon">$</span>
+        Cash App&nbsp; $OmegaCares22
+      </a>
+
+
+      <!-- VENMO -->
+
+      <a
+        class="pay-btn venmo"
+        href="https://venmo.com/u/OmegaCares22"
+        target="_blank"
+        rel="noopener"
+        aria-label="Pay by Venmo to @OmegaCares22"
+      >
+        <span class="pay-icon">V</span>
+        Venmo&nbsp; @OmegaCares22
+      </a>
+
+
+      <!-- ZELLE -->
+
+      <button
+        class="pay-btn zelle"
+        type="button"
+        data-open-modal="zelle-modal"
+        aria-label="Pay with Zelle"
+      >
+        <span class="pay-icon">Z</span>
+        Zelle&nbsp; lovebuildslove@gmail.com
+      </button>
+
+
+      <!-- APPLE CASH -->
+
+      <button
+        class="pay-btn applecash"
+        type="button"
+        data-open-modal="apple-modal"
+        aria-label="Pay with Apple Cash"
+      >
+        <span class="pay-icon"></span>
+        Apple Cash&nbsp; lovebuildslove@gmail.com
+      </button>
+
+
     </section>
-    <p class="payment-note" id="payment-note">Cash App and Venmo open directly. Tap Zelle or Apple Pay to copy the payment email.</p>
+
+
+    <p class="payment-note">
+      Cash App and Venmo open directly. Tap Zelle or Apple Cash for payment instructions.
+    </p>
+
+
   </main>
+
+
+
+  <!-- ZELLE POPUP -->
+
+  <div
+    class="modal"
+    id="zelle-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="zelle-title"
+  >
+
+    <div class="modal-card">
+
+      <button
+        class="modal-close"
+        type="button"
+        data-close-modal
+        aria-label="Close Zelle payment window"
+      >
+        ×
+      </button>
+
+      <h2 id="zelle-title">
+        Pay with Zelle
+      </h2>
+
+      <p>
+        Scan this QR code with your banking app.
+      </p>
+
+      <img
+        src="zelle-qr.png"
+        alt="Zelle QR code for Olivia Fradin"
+        class="zelle-qr-image"
+      >
+
+      <p class="modal-small">
+        Or send with Zelle to:
+      </p>
+
+      <a
+        class="payment-email"
+        href="mailto:lovebuildslove@gmail.com"
+      >
+        lovebuildslove@gmail.com
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- APPLE CASH POPUP -->
+
+  <div
+    class="modal"
+    id="apple-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="apple-title"
+  >
+
+    <div class="modal-card">
+
+      <button
+        class="modal-close"
+        type="button"
+        data-close-modal
+        aria-label="Close Apple Cash payment window"
+      >
+        ×
+      </button>
+
+      <h2 id="apple-title">
+        Pay with Apple Cash
+      </h2>
+
+      <p>
+        Send with Apple Cash to:
+      </p>
+
+      <a
+        class="payment-email"
+        href="mailto:lovebuildslove@gmail.com"
+      >
+        lovebuildslove@gmail.com
+      </a>
+
+      <p>
+        On your iPhone, tap below to open Messages.
+      </p>
+
+      <a
+        class="modal-action apple-action"
+        href="sms:lovebuildslove@gmail.com"
+      >
+         Open Messages
+      </a>
+
+      <p class="modal-small">
+        In Messages, tap + and choose Apple Cash to send your payment.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- MODAL SCRIPT -->
+
   <script>
-    document.querySelectorAll('[data-copy]').forEach(function(link){
-      link.addEventListener('click', async function(event){
-        event.preventDefault();
-        const value = this.dataset.copy;
-        const note = document.getElementById('payment-note');
-        try {
-          await navigator.clipboard.writeText(value);
-          note.textContent = value + ' copied — paste it into Zelle or Apple Pay.';
-        } catch (error) {
-          note.textContent = 'Use ' + value + ' for Zelle or Apple Pay.';
-        }
+
+    const modalTriggers = document.querySelectorAll('[data-open-modal]');
+    const modalClosers = document.querySelectorAll('[data-close-modal]');
+    const modals = document.querySelectorAll('.modal');
+
+
+    function openModal(modal){
+
+      if(!modal) return;
+
+      modal.classList.add('show');
+
+      document.body.classList.add('modal-open');
+
+      const closeButton = modal.querySelector('[data-close-modal]');
+
+      if(closeButton){
+        closeButton.focus();
+      }
+
+    }
+
+
+    function closeModal(modal){
+
+      if(!modal) return;
+
+      modal.classList.remove('show');
+
+      document.body.classList.remove('modal-open');
+
+    }
+
+
+    modalTriggers.forEach(function(trigger){
+
+      trigger.addEventListener('click', function(){
+
+        const modalId = this.dataset.openModal;
+
+        const modal = document.getElementById(modalId);
+
+        openModal(modal);
+
       });
+
     });
+
+
+    modalClosers.forEach(function(button){
+
+      button.addEventListener('click', function(){
+
+        closeModal(this.closest('.modal'));
+
+      });
+
+    });
+
+
+    modals.forEach(function(modal){
+
+      modal.addEventListener('click', function(event){
+
+        if(event.target === modal){
+
+          closeModal(modal);
+
+        }
+
+      });
+
+    });
+
+
+    document.addEventListener('keydown', function(event){
+
+      if(event.key === 'Escape'){
+
+        const openModalElement = document.querySelector('.modal.show');
+
+        if(openModalElement){
+
+          closeModal(openModalElement);
+
+        }
+
+      }
+
+    });
+
   </script>
+
 
 </body>
 </html>
