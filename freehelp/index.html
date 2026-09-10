@@ -272,7 +272,34 @@
       font-size:.82rem;
       padding:0 0 36px;
     }
+.contact-strip{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:4px 0 18px;
+  color:var(--navy);
+  font-weight:900;
+  font-size:.98rem;
+}
 
+.contact-strip a:hover{
+  color:var(--pink-dark);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+@media(max-width:700px){
+  .contact-strip{
+    flex-direction:column;
+    gap:4px;
+  }
+
+  .contact-strip span{
+    display:none;
+  }
+}
     @media(max-width:900px){
 
       .wrap{
@@ -383,7 +410,11 @@
           </strong>
         </span>
       </div>
-
+<div class="contact-strip">
+  <a href="sms:+18552885683">💬 Text (855) 288-LOVE</a>
+  <span>•</span>
+  <a href="mailto:lovebuildslove@gmail.com">✉ lovebuildslove@gmail.com</a>
+</div>
     </header>
 
 
