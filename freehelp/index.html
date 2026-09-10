@@ -272,33 +272,21 @@
       font-size:.82rem;
       padding:0 0 36px;
     }
-.contact-strip{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin:4px 0 18px;
-  color:var(--navy);
-  font-weight:900;
+.notice-contact{
+  margin:12px 0 0;
   font-size:.98rem;
+  font-weight:900;
+  color:var(--navy);
 }
 
-.contact-strip a:hover{
+.notice-contact a{
+  color:var(--navy);
+}
+
+.notice-contact a:hover{
   color:var(--pink-dark);
   text-decoration:underline;
   text-underline-offset:3px;
-}
-
-@media(max-width:700px){
-  .contact-strip{
-    flex-direction:column;
-    gap:4px;
-  }
-
-  .contact-strip span{
-    display:none;
-  }
 }
     @media(max-width:900px){
 
@@ -402,18 +390,19 @@
         <span>Choose</span> the help you need
       </h1>
 
-      <div class="notice">
-        <span class="big">
-          <strong>
-            We currently help Georgia parents support children living in Gwinnett County.<br>
-            MORE COUNTIES COMING SOON!
-          </strong>
-        </span>
-      </div>
-<div class="contact-strip">
-  <a href="sms:+18552885683">💬 Text (855) 288-LOVE</a>
-  <span>•</span>
-  <a href="mailto:lovebuildslove@gmail.com">✉ lovebuildslove@gmail.com</a>
+     <div class="notice">
+  <span class="big">
+    <strong>
+      We currently help Georgia parents support children living in Gwinnett County.<br>
+      MORE COUNTIES COMING SOON!
+    </strong>
+  </span>
+
+  <p class="notice-contact">
+    <a href="sms:+18552885683">💬 Text (855) 288-LOVE</a>
+    &nbsp; • &nbsp;
+    <a href="mailto:lovebuildslove@gmail.com">✉ Email lovebuildslove@gmail.com</a>
+  </p>
 </div>
     </header>
 
